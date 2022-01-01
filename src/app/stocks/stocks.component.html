@@ -1,1 +1,20 @@
-<p>stocks works!</p>
+<clr-datagrid>
+    <clr-dg-colum [clrDgField]="'symbol'">Symbol</clr-dg-colum>
+    <clr-dg-colum [clrDgField]="'name'">Name</clr-dg-colum>
+    <clr-dg-colum [clrDgField]="'price'">Price</clr-dg-colum>
+    <clr-dg-colum [clrDgField]="'chagne'">Change</clr-dg-colum>
+    <clr-dg-column></clr-dg-column>
+
+    <clr-db-row *clrDgItems="let stock of stocks">
+        <clr-dg-cell>{{stock.symbol}}</clr-dg-cell>
+        <clr-dg-cell>{{stock.name}}</clr-dg-cell>
+        <clr-dg-cell>{{stock.price | currency:'USD':'symbol':'.2'}}</clr-dg-cell>
+        <clr-dg-cell>{{stock.change | currency:'USD':'symbol':'.2'}}</clr-dg-cell>
+        <clr-dg-cell class="btn-cell"><button class="btn btn-sm" (click)="buy(stock)">Buy</button></clr-dg-cell>
+    </clr-db-row>
+
+    <clr-dg-footer>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{total}} stocks
+        <clr-dg-pagination #pagination [clrDgPageSize]="10"></clr-dg-pagination>
+    </clr-dg-footer>
+</clr-datagrid>

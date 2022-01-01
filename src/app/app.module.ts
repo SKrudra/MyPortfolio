@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ClrIconModule } from '@clr/angular';
 
 import { AppComponent } from './app.component';
 import { AlertComponent } from './alert/alert.component';
@@ -16,7 +17,8 @@ import { TickerComponent } from './ticker/ticker.component';
     TickerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ClrIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

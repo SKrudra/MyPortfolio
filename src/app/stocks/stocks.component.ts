@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Stock } from './../services/stocks.model';
+import { AccountService } from './../services/account.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-stocks',
   templateUrl: './stocks.component.html',
   styleUrls: ['./stocks.component.scss']
 })
-export class StocksComponent implements OnInit {
+export class StocksComponent {
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
-  ngOnInit(): void {
+  buy(stock: Stock): void {
+    this.accountService.purchase(stock);
   }
-
 }
