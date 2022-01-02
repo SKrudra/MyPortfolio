@@ -1,6 +1,8 @@
+import { CurrencyPipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ClrIconModule } from '@clr/angular';
+import { ClarityModule, ClrIconModule } from '@clr/angular';
 
 import { AppComponent } from './app.component';
 import { AlertComponent } from './alert/alert.component';
@@ -18,9 +20,11 @@ import { TickerComponent } from './ticker/ticker.component';
   ],
   imports: [
     BrowserModule,
-    ClrIconModule
+    ClarityModule,
+    ClrIconModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Stock } from './../services/stocks.model';
 import { AccountService } from './../services/account.service';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-stocks',
@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./stocks.component.scss']
 })
 export class StocksComponent {
+
+  @Input() stocks!: Stock[];
 
   constructor(private accountService: AccountService) { }
 

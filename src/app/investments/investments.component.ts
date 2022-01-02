@@ -14,7 +14,7 @@ export class InvestmentsComponent implements DoCheck {
   chagne = 0;
   stocks: Stock[] = [];
 
-  constructor(private accountService: AccountService) { }
+  constructor(public accountService: AccountService) { }
 
   ngDoCheck() {
     if (this.accountService.stocks.length !== this.stocks.length) {

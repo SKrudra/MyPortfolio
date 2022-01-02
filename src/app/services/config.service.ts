@@ -5,5 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
-  constructor() { }
+  private static _api: string;
+
+  static set(property: string, value: any) {
+    // this['_' + property] = value;
+    this._api = value;
+  }
+
+  static get(property: string) {
+    // return this['_' + property];
+    return this._api;
+  }
 }

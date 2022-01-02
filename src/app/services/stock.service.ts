@@ -1,3 +1,6 @@
+import { ConfigService } from './config.service';
+import { Stock } from './stocks.model';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +8,9 @@ import { Injectable } from '@angular/core';
 })
 export class StockService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getStocks() {
+    return this.http.get<Array<Stock>>(ConfigService.get('api'));
+  }
 }

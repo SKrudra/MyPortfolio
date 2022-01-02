@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AlertComponent {
 
-  constructor(private service: AlertService) { }
+  message = '';
+
+  constructor(public service: AlertService) { }
 
 }

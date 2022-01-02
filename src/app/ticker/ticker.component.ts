@@ -20,7 +20,7 @@ export class TickerComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-      if (this._stocks.length && this._stocks.length < 30) {
+      if (this._stocks?.length && this._stocks.length < 30) {
         if (this.page * 100 > this._stocks.length) {
           this.page = 0;
         }

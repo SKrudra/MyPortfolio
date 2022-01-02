@@ -1,4 +1,4 @@
-<clr-alert [clrAlertType]="service.type" [clrAlertLevel]="true" *ngIf="service.show" (clrAlertClosedChange)="service.close()">
+<clr-alert [clrAlertType]="service.type" [clrAlertAppLevel]="true" *ngIf="service.show" (clrAlertClosedChange)="service.close()">
     <div clr-alert-item class="alert-time">
         <div class="alert-text">
             {{service.message}}

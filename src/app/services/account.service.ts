@@ -11,7 +11,7 @@ const defaultBalance: number = 10000;
 })
 export class AccountService {
 
-  private _balance: number = 0;
+  private _balance: number = defaultBalance;
   private _cost: number = 0;
   private _value: number = 0;
   private _stocks: Stock[] = [];
@@ -37,6 +37,7 @@ export class AccountService {
   purchase(stock: Stock): void {
     stock = Object.assign({}, stock);
     if (stock.price < this.balance) {
+      this._balance = this.debit(stock.price, this.balance)
       stock.cost = stock.price;
       this._cost = this.credit(stock.cost, this.cost);
       stock.change = 0;
@@ -59,7 +60,7 @@ export class AccountService {
       this.cacheValue();
       this.alertService.alert(`You sold ${stock.symbol} for ` + this.currencyPipe.transform(stock.price, 'USD', true, '.2'), 'success');
     } else {
-      this.alertService.alert(`You do not own the ${stock.symbol} stock.`, 'danger');
+      this.alertService.alert(`You do not own the ${stock} stock.`, 'danger');
     }
   }
 
